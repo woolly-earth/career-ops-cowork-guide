@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Running career-ops in Claude Cowork — a setup guide</title>
+  <meta name="description" content="A practical, copy-paste guide to running career-ops — an open-source AI job-search command center — inside Claude Cowork and Claude Code, with the customization patterns that fit a real multi-track senior search." />
+  <meta name="color-scheme" content="dark light" />
+
+  <!-- Open Graph (no personal data) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Running career-ops in Claude Cowork" />
+  <meta property="og:description" content="Set up the open-source career-ops job-search agent inside Claude Cowork (and Claude Code) — with the customization patterns that make it fit a non-template search." />
+
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Community implementation guide</span>
+      <h1>Run <strong>career-ops</strong> in Claude&nbsp;Cowork — without living in a terminal</h1>
+      <p class="lede">
+        A practical, copy-paste guide to setting up the open-source
+        <a href="https://github.com/santifer/career-ops">career-ops</a> job-search agent
+        inside <a href="https://www.anthropic.com/news/cowork">Claude Cowork</a> (and Claude Code),
+        plus the customization patterns that turn the generic template into something
+        that fits a real, multi-track senior search.
+      </p>
+      <nav class="cta">
+        <a class="btn primary" href="#setup-6-steps-1-hour">Start the setup →</a>
+        <a class="btn" href="https://github.com/santifer/career-ops">Get career-ops</a>
+        <a class="btn" href="https://github.com/woolly-earth/career-ops-cowork-guide">View on GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article id="content" class="content">
+      <p class="loading">Loading the guide…</p>
+      <noscript>
+        <p>This page renders the guide with JavaScript. You can read the full
+        source directly in
+        <a href="https://github.com/woolly-earth/career-ops-cowork-guide#readme">README.md</a>.</p>
+      </noscript>
+    </article>
+  </main>
+
+  <footer>
+    Independent community guide — not affiliated with Anthropic or the career-ops project.
+    career-ops is by <a href="https://github.com/santifer/career-ops">santifer</a>.
+    Maintained by <a href="https://github.com/woolly-earth">woolly-earth</a>.
+    <a href="LICENSE">MIT License</a>.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script>
+    function slugify(text) {
+      return text.toLowerCase().trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-');
+    }
+
+    fetch('README.md')
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(function (md) {
+        // The hero already shows the title — drop the leading H1 line.
+        md = md.replace(/^#\s.*\r?\n/, '');
+        var el = document.getElementById('content');
+        el.innerHTML = marked.parse(md);
+        // GitHub-style heading IDs so the in-page table of contents links work.
+        el.querySelectorAll('h1, h2, h3, h4').forEach(function (h) {
+          if (!h.id) h.id = slugify(h.textContent);
+        });
+      })
+      .catch(function (e) {
+        document.getElementById('content').innerHTML =
+          '<p>Could not load the guide inline (' + e.message + '). ' +
+          'Read it on <a href="https://github.com/woolly-earth/career-ops-cowork-guide#readme">GitHub</a>.</p>';
+      });
+  </script>
+</body>
+</html>

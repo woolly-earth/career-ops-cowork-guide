@@ -1,0 +1,43 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# config/profile.yml  — EXAMPLE (de-identified)
+#
+# This is a user-layer file in career-ops: it is never overwritten by a system
+# update. Copy it to config/profile.yml and replace every placeholder with your
+# own values. Delete the lanes/archetypes you don't need.
+# ─────────────────────────────────────────────────────────────────────────────
+
+candidate:
+  full_name: "<Your Name>"
+  email:     "<you@example.com>"
+  location:  "<City, Region, Country>"
+  linkedin:  "linkedin.com/in/<your-handle>"
+  # phone / website / github are optional
+
+# Define one or more target tracks. career-ops scores every role against these.
+target_roles:
+  primary:
+    - "<Primary role title — seniority + domain, e.g. 'Head of AI — EdTech'>"
+    - "<Second track — e.g. 'Public-sector / NGO digital innovation roles'>"
+    - "<Third track — e.g. 'Senior/Principal AI at early-stage startups'>"
+  # Archetypes drive the adaptive CV framing (see _profile.example.md).
+  archetypes:
+    - { name: "<Archetype A>", level: "<Head/Director/Principal>", fit: "primary" }
+    - { name: "<Archetype B>", level: "<any / mid+>",              fit: "primary" }
+    - { name: "<Archetype C>", level: "<Senior/Principal IC>",     fit: "primary" }
+    # Add secondary/adjacent archetypes as needed:
+    # - { name: "<Archetype D>", level: "<VP/Chief>", fit: "secondary" }
+
+compensation:
+  target_range: "<e.g. 'USD 150k–250k' or local-currency band>"
+  minimum:      "<true walk-away floor — see note in _profile.example.md>"
+  currency:     "<primary currency; list others you'd accept>"
+
+location:
+  country:     "<Country>"
+  city:        "<City>"
+  timezone:    "<e.g. 'UTC+1'>"
+  visa_status: "<e.g. 'Citizen — open to relocation with sponsorship'>"
+
+# Optional: language for the modes/ playbooks (default English).
+# language:
+#   modes_dir: modes        # or modes/de, modes/fr, modes/ja

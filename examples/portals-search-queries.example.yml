@@ -1,0 +1,36 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# portals.yml — EXAMPLE fragment (de-identified)
+#
+# career-ops' default scanner hits Greenhouse / Ashby / Lever / Workable JSON
+# APIs directly (zero LLM cost). That covers most tech hiring — but NOT boards
+# with no public API (public-sector, NGO, UN-system, many regional aggregators).
+#
+# For those, add a parallel WebSearch-driven block like the one below. It's less
+# reliable than an API hit (results can be stale), so treat it as a safety net
+# and still browse those boards manually once a week. Belt and braces.
+#
+# Paste this block into your portals.yml and rename/extend the queries.
+# ─────────────────────────────────────────────────────────────────────────────
+
+extra_search_queries:
+  - name: "Off-API board — IT / Digital / Innovation"
+    query: 'site:<example-jobs-board.org> "Innovation" OR "Digital" OR "AI" OR "Data" OR "ICT"'
+    enabled: true
+
+  - name: "Off-API board — aggregator, mission-aligned"
+    query: 'site:<example-aggregator.org> "<your domain keyword>" "<seniority keyword>"'
+    enabled: true
+
+  # Add one query per board you can't reach via API.
+  # Tips:
+  #   - Use site: to pin each query to a single domain.
+  #   - OR-chain the role keywords that matter for your lane.
+  #   - Keep enabled:false on queries you want to keep but not run this week.
+
+# ── Reminder: the title filter still applies to everything the scanner returns.
+# Tune title_filter.positive / .negative to your target titles so the scanner
+# doesn't surface roles outside your lanes.
+#
+# title_filter:
+#   positive: ["AI", "Machine Learning", "Architect", "Head", "Principal", "Innovation"]
+#   negative: ["Sales", "Intern", "Recruiter"]
