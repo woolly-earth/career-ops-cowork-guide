@@ -1,5 +1,13 @@
 # CLAUDE.md — career-ops-cowork-guide
 
+> **AGENT-FRAMEWORK STATUS: PARKED (2026-07-11, cross-project audit).** The
+> `.claude/agents` layer here is an unexercised seed copy (lessons.md is the empty
+> template, byte-identical to career-ops'; no memory rows ever written). For a docs/
+> content repo this full pipeline is oversized — if agent-driven work resumes here,
+> re-seed from the canonical template at `Projects/claude-cowork-template` (and
+> consider only prd-author + code-reviewer + retrospective for a content repo)
+> rather than reviving this copy.
+
 Project context loaded automatically by Claude Code / Cowork. Keep it short, current, and true.
 
 ## What this project is
